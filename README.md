@@ -1,26 +1,55 @@
-# ML-Market-Analysis
+# Expense Tracker CLI
 
-## Overview
+A simple command-line expense tracker that allows users to record their income and expenses in a CSV file. The app provides summaries and simple statistics on the user's financial data.
 
-The tool will use the Kaggle API to gather historical data on stocks, and perform various analyses to identify relevant features and patterns in the data. We will use machine learning algorithms to build models that can predict future market movements based on historical data, and evaluate their performance using various metrics. Finally, we will use visualization tools such as Matplotlib to create visualizations that help us interpret the results and gain insights into the stock market.
+## Installation
 
-The goal of this project is not to provide a definitive prediction of the stock market, but rather to provide a tool that can assist investors in making more informed decisions. By analyzing historical data and identifying patterns, the tool can help investors better understand market trends and make more informed investment decisions. However, it's important to note that the stock market is inherently unpredictable, and no tool or model can accurately predict future market movements with 100% accuracy. As such, we recommend that investors always consult with a financial advisor before making any investment decisions.
+No additional installation steps required. Just make sure you have Python 3.x and the required libraries installed.
 
-## Packages Used
+## Required Libraries
 
-To accomplish this, we will be using several Python packages:
+1. pandas (third-party)
+2. numpy (third-party)
 
-- Pandas: For manipulating and analyzing data
-- NumPy: For numerical computing
-- Scikit-Learn: For training machine learning models to predict the market
-- Matplotlib: For visualizing the data and results
+To install the required libraries, run the following command:
 
-## Project Stages
+```bash
+pip3 install pandas numpy
+```
 
-The project will be divided into several stages:
+## Usage
+1. <file>: Path to the CSV file to store the financial data.
+2. --expense category amount description: Add an expense with category, amount, and description.
+3. --income amount description: Add an income with amount and description.
+4. --summary: Display a summary of income and expenses.
+5. --stats: Display simple statistics on the financial data.
 
-1. **Data Gathering**: Use the Kaggle API to gather historical stock data.
-2. **Data Cleaning and Feature Engineering**: Perform exploratory data analysis to identify relevant features.
-3. **Model Training and Validation**: Train machine learning models on the data to predict market movements, and evaluate their performance using various metrics.
-4. **Result Visualization**: Use Matplotlib to create visualizations that help us interpret the results and gain insights into the stock market.
+## Examples
 
+Add an expense:
+```bash
+python3 expense_tracker.py finances.csv --expense groceries 25.50 "Weekly groceries"
+```
+
+Add an income:
+
+```bash
+python3 expense_tracker.py finances.csv --income 1000 "Salary"
+```
+
+Display a summary of income and expenses:
+
+```bash
+python3 expense_tracker.py finances.csv --summary
+```
+
+Display simple statistics on the financial data:
+
+```bash
+python3 expense_tracker.py finances.csv --stats
+```
+
+## Code Structure
+1. expense_tracker.py: The main script that contains the command-line interface and functions for the expense tracker.
+2. Transaction class: A class to represent individual financial transactions.
+3. Functions: parse_arguments, read_csv_file, write_csv_file, add_expense, add_income, display_summary, and display_statistics for managing and analyzing financial data.
